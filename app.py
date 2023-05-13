@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import joblib
 import pandas as pd
 from flask_cors import CORS
+import json
 
 app = Flask(__name__)
 CORS(app)
@@ -14,21 +15,21 @@ def predict():
     
     input_data = input_data.dropna()
 
-    print('ok') 
-
-    input_data['bedrooms'] = input_data['bedrooms'].astype(float)
-    input_data['floors'] = input_data['floors'].astype(float)
-    input_data['sqft_living'] = input_data['sqft_living'].astype(float)
-    input_data['sqft_lot'] = input_data['sqft_lot'].astype(float)
-    input_data['condition'] = input_data['condition'].astype(float)
-    input_data['sqft_above'] = input_data['sqft_above'].astype(float)
-    input_data['sqft_basement'] = input_data['sqft_basement'].astype(float)
-    input_data['yr_built'] = input_data['yr_built'].astype(float)
-    input_data['yr_renovated'] = input_data['yr_renovated'].astype(float)
+    print('ok')
 
     numeric_columns = ['bedrooms', 'sqft_living', 'sqft_lot', 'floors', 'condition',
        'sqft_above', 'sqft_basement', 'yr_built', 'yr_renovated',]
+    
+    input_data[numeric_columns] = input_data[numeric_columns].astype(float)
        
+
+    with open('mean_std.json', 'r') as f:
+         mean_std = json.load(f)
+
+    mean = pd.Series(mean_std['mean'])
+    std = pd.Series(mean_std['std'])
+
+    input_data[numeric_columns] = (input_data[numeric_columns] - mean[numeric_columns]) / std[numeric_columns]
 
     
     print('lol:' ,input_data)
@@ -58,6 +59,7 @@ def predict():
     input_data = input_data[all_columns]
     print('Input data:' , input_data)
     predictions = model.predict(input_data)
+    predictions= predictions* std['price'] + mean['price']
     predictions = predictions.tolist()
     return jsonify(predictions)
 
