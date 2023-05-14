@@ -14,14 +14,11 @@ def predict():
     input_data = pd.DataFrame(request.json['data'], index=[0])
     
     input_data = input_data.dropna()
-
-    print('ok')
-
+    
     numeric_columns = ['bedrooms', 'sqft_living', 'sqft_lot', 'floors', 'condition',
        'sqft_above', 'sqft_basement', 'yr_built', 'yr_renovated',]
     
-    input_data[numeric_columns] = input_data[numeric_columns].astype(float)
-       
+    input_data[numeric_columns] = input_data[numeric_columns].astype(float)      
 
     with open('mean_std.json', 'r') as f:
          mean_std = json.load(f)
@@ -30,9 +27,6 @@ def predict():
     std = pd.Series(mean_std['std'])
 
     input_data[numeric_columns] = (input_data[numeric_columns] - mean[numeric_columns]) / std[numeric_columns]
-
-    
-    print('lol:' ,input_data)
 
     categorical_columns = ['city']
     input_data = pd.get_dummies(input_data, columns=categorical_columns)

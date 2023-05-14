@@ -14,10 +14,13 @@
 
 .mainheader{
   color: white;
-  padding-top: 350px;
+  justify-content: center;
+  text-align: center;
+  padding-top: 400px;
   padding-left: 500px;
   font-size: 3.5em;
 }
+
 
 .App-link {
   color: #61dafb;
