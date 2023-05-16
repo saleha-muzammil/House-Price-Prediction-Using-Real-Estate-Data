@@ -1,6 +1,6 @@
 # House-Price-Prediction-Using-Real-Estate-Data
 
-This is a machine learning project that predicts house prices using linear regression with L1 and L2 regularization. The model was trained using a dataset of house features, and evaluated using R2, MSE, RMSE, and MAE metrics.
+This is a machine learning project that predicts house prices using linear regression with L2 regularization. The model was trained using a dataset of house features, and evaluated using R2, MSE, RMSE, and MAE metrics.
 
 ## Technologies Used
 
