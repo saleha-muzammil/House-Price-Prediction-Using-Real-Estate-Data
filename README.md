@@ -54,7 +54,3 @@ Finally, open the ReactJS frontend by navigating to `http://localhost:3000` in y
 ## Credits
 
 This project was created by [Your Name] as part of a machine learning course. The King County House Sales Dataset was obtained from Kaggle.
-
-## License
-
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
