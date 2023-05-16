@@ -24,11 +24,7 @@ The application was deployed using Flask as the backend framework and ReactJS as
 
 Homepage: 
 
-file:///home/saleha/Pictures/Screenshots/Screenshot%20from%202023-05-14%2008-10-54.png
-
-Prediction form:
-
-file:///home/saleha/Pictures/Screenshots/Screenshot%20from%202023-05-14%2008-11-07.png![Uploading image.png…]()
+![Alt Text](frontend/src/assets/Screenshot from 2023-05-14 08-10-54.png)
 
 ## Evaluation Metrics
 
