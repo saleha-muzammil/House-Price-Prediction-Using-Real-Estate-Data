@@ -23,9 +23,11 @@ The model was built using linear regression and was tested with L1 and L2 regula
 The application was deployed using Flask as the backend framework and ReactJS as the frontend framework. Users can input house features such as the number of bedrooms, bathrooms, and square footage, and the model will predict the house price.
 
 Homepage: 
+
 file:///home/saleha/Pictures/Screenshots/Screenshot%20from%202023-05-14%2008-10-54.png
 
 Prediction form:
+
 file:///home/saleha/Pictures/Screenshots/Screenshot%20from%202023-05-14%2008-11-07.png![Uploading image.png…]()
 
 ## Evaluation Metrics
